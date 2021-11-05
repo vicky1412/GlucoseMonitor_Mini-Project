@@ -36,7 +36,7 @@
 }
 
 .titletext{
-    margin-top:0%;
+    margin-top:-3%;
   text-align: center;
   color:  #ffffff;
   font-size: 30px;
@@ -68,7 +68,7 @@
 }
 
 .glucoseimage{
-    margin: 5px 470px;
+    margin: 80px 470px;
     width: 200px;
 }
 
