@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block link %}<link rel="stylesheet" href="/static/css/stylecubes.css">{% endblock %}
+
+{% block underbody %}
+       <div class="cube"></div>
+       <div class="cube"></div>
+       <div class="cube"></div>
+       <div class="cube"></div>
+      <div class="cube"></div>
+    {% endblock %}
+{% block bgcover %}
+style="background: linear-gradient(132deg, #FC415A, #591BC5, #212335);
+    animation: Gradient 15s ease infinite;
+    background-size:100%;
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+    overflow: hidden;
+    height:100%;
+    width:100%;"
+{% endblock %}
+
+{% block content%}
+<img class="glucoseimage" src="/static/images/glucoseanimated.gif" >
+<h1 class="titletext">Glucose Level Monitor</h1>
+<h3 class="titletext1">Manage and Monitor your Patients Glucose Level</h3>
+<button class="getstartbutton"><a href="/sign-up" style="color:white;text-decoration: none;">Get Started</a></button>
+
+{% endblock %}

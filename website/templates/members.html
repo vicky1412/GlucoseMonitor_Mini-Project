@@ -1,0 +1,375 @@
+{% extends "base.html" %}
+{% block title %}Members{% endblock %}
+{% block link %}<link rel="stylesheet"  href="/static/css/stylemembers.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+
+{% endblock %}
+
+{% block content %}>
+      <!-- head-->
+<div class="container container-head">
+  <h1 align="center" style="margin: 60px;" class="bg-light py-4 text-info ">
+    <i class="fas fa-plug"></i> <strong>GL</strong>moitor
+  </h1>
+</div>
+<!--label-->
+<div class="container container-label">
+  <h1 align="center" ><span class="label label-default" id="badge">{{badge}}</span></h1>
+  <button class="btn btn-success " style="margin:0px 45.5%;" id="show_details" name="show_details" onclick="Buttonshowdetails()">Show Details</button>
+</div>
+<!--form-->
+<div class="container container-form ">
+    <form id="form" name="form" class="form-inline" action="{{ url_for('views.members')}}" method="post">
+      <fieldset>
+        <!-- name-->
+        <div hidden>
+          <div >
+            <input id="bar" name="bar" type="text" value="vignesh" class="form-control input-md" size="33">
+          </div>
+        </div>
+       <div class="form-group">
+          <div class="col-md-4">
+            <input id="first_name" name="first_name" type="text" placeholder="First Name " class="form-control input-md" size="22">
+          </div>
+        </div>
+          <div class="form-group">
+          <div class="col-md-4">
+            <input id="last_name" name="last_name" type="text" placeholder="Last Name " class="form-control input-md" size="22">
+          </div>
+        </div>
+        <!-- gender-->
+        <div class="form-group">
+          <div class="col-md-4">
+            <input id="gender" name="gender" type="text" placeholder="Gender " class="form-control input-md" size="22">
+          </div>
+        </div>
+         <div class="form-group">
+            <div class="col-md-4">
+                <input id="age" name="age" type="text" placeholder="Age" class="form-control input-md" size="24">
+            </div>
+          </div>
+
+
+        <!-- contact-->
+        <div class="form-group">
+          <div class="col-md-4">
+            <input id="contact" name="contact" type="text" placeholder="Phone No" class="form-control input-md" size="22">
+          </div>
+        </div>
+        <!-- address-->
+        <div class="form-group">
+          <div class="col-md-4">
+          <input id="address" name="address" type="text" placeholder="Address" class="form-control input-md" size="22">
+          </div>
+        </div>
+
+        <!-- room_no-->
+        <div class="form-group">
+          <div class="col-md-4">
+          <input id="room_no" name="room_no" type="text" placeholder="Room No" class="form-control input-md" size="22">
+          </div>
+        </div>
+
+        <!-- bed_no-->
+        <div class="form-group">
+          <div class="col-md-4">
+          <input id="bed_no" name="bed_no" type="text" placeholder="Bed No" class="form-control input-md" size="24">
+          </div>
+        </div>
+
+
+  </fieldset>
+    </form>
+
+</div>
+<!--menu-->
+<div class="container container-menu">
+    <button class="trash_btn1" type="button" style="border:none;background-color:white;margin-left:850px;display:inline;" id="trash_btn1" name="trash_btn1"  >
+        <span class="glyphicon glyphicon-trash" style="color:red;"></span>
+    </button>
+</div>
+<!--button-->
+<div class="container container-btn">
+  <div class="btn-group btn-group-lg">
+        <button class="btn btn-danger btn-block" id="refresh" name="show_all" onclick="Buttonshowall()">Refresh</button>
+        <button class="btn btn-success btn-block" id="add_patient" name="add_patient" onclick="Buttonadd()">Add Patient</button>
+        <button class="btn btn-primary  btn-block" id="search" name="search" onclick="Buttonsearch()">Search</button>
+        <button class="btn btn-warning btn-block" id="update" name="update" onclick="Buttonupdate()">Update</button>
+        <button class="btn btn-danger btn-block" id="filter" name="filter" onclick="Buttonfilter()">Filter</button>
+        <button class="btn btn-primary btn-block" id="show_all" name="show_all" onclick="Buttonshowall()">Show All</button>
+  </div>
+</div>
+<!--table-->
+<div class="container container-table" id="table" >
+        <div >
+            <table id="table1" class="tableFixHead">
+                <thead>
+                  <tr>
+                    <th id="selectall"><input type="checkbox"></th>
+                    <th >First_Name</th>
+                    <th >Last_Name</th>
+                    <th>Gender</th>
+                    <th>Age</th>
+                    <th >Contact</th>
+                    <th >Address</th>
+                    <th >Room No</th>
+                    <th >Bed No</th>
+                    <th >Glucose</th>
+                    <th >Need Glucose</th>
+                    <th>Edit</th>
+                    <th >Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+               {% for row in search_results %}
+                  <tr>
+                    <td id="check1"><input type="checkbox"></td>
+                    <td class="first_nam"> {{row.first_name}}</td>
+                    <td class="last_nam"> {{row.last_name}}</td>
+                    <td class="gen">{{row.gender}}</td>
+                    <td class="ag">{{row.age}}</td>
+                    <td class="con">{{row.contact}}</td>
+                    <td class="add" style="text-align: left;">{{row.address}}</td>
+                    <td class="roo" style="text-align: left;">{{row.room_no}}</td>
+                    <td class="bed" style="text-align: left;">{{row.bed_no}}</td>
+                    <td class="glu" style="text-align: left;">{{row.glucose}}</td>
+                    <td class="nee">{{row.need_glucose}}</td>
+                    <td >
+                      <button class="edit_btn" type="button" style="border:none;background-color:white;" id="edit_btn" name="edit_btn" >
+                        <span class="glyphicon glyphicon-edit" style="color:blue;"></span>
+                      </button>
+                    </td>
+                    <td >
+                      <button class="trash_btn" type="button" style="border:none;background-color:white;" id="trash_btn" name="trash_btn"  >
+                        <span class="glyphicon glyphicon-trash" style="color:red;"></span>
+                      </button>
+                    </td>
+                  </tr>
+               {% endfor %}
+
+
+                </tbody>
+            </table>
+        </div>
+</div>
+
+<!--filter popup-->
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span id="close" class="close">&times;</span>
+            <h2>Filters</h2>
+        </div>
+        <div class="modal-body">
+        <ul class="nav nav-pills nav-justified">
+            <li role="presentation"><a id="agefilter" href="#">Age</a></li>
+            <li role="presentation"><a id="genderfilter" href="#">Gender</a></li>
+            <li role="presentation"><a id="lastnamefilter" href="#">Last Name</a></li>
+        </ul>
+        <div id="slidecontainer" class="slidecontainer">
+            <input type="range" min="1" max="100" value="50" class="slider" id="myrange">
+            <p>Value: <span id="demo"></span></p>
+        </div>
+        <div id="genderfilter1" class="genderfilter">
+            <a>&nbsp;</a>
+            <input type="radio" id="genderfiltermale" name="gender" value="male">
+            <label for="genderfiltermale">Male</label><br>
+            <input type="radio" id="genderfilterfemale" name="gender" value="female">
+            <label for="genderfilterfemale">Female</label><br>
+            <a>&nbsp;</a>
+            <input type="radio" checked="checked" id="genderfilterboth" name="gender" value="">
+            <label for="genderfilterfemale">Both</label><br>
+        </div>
+        <div id="lastnamefilter1" class="lastnamefilter">
+            <input id="lastnamefilterinput" type="text" placeholder="Enter last name">
+        </div>
+    </div>
+        <div class="modal-footer">
+      <button class="btn btn-primary btn-block" style="width:40px;color:white;margin-left:130px;" onclick="filtersubmitbtn()">Ok</button>
+    </div>
+    </div>
+</div>
+
+<!--buttonadd-->
+<script>Buttonadd = function(){
+  document.getElementById("bar").value= "add";
+  document.forms["form"].submit();
+}</script>
+
+<!--buttonsearch-->
+<script>Buttonsearch= function(){
+  document.getElementById("bar").value= "search";
+  document.forms["form"].submit();
+}</script>
+
+<!--buttonshowall-->
+<script>Buttonshowall= function(){
+  document.getElementById("bar").value= "showall";
+  document.forms["form"].submit();
+}</script>
+
+<!--buttonshowdetails-->
+<script>Buttonshowdetails = function(){
+  document.getElementById("bar").value= "showdetails";
+  document.forms["form"].submit();
+}</script>
+
+<!--delete-->
+<script type="text/javascript">
+        $(document).ready(function () {
+$(".trash_btn").click(function() {
+    var $row = $(this).closest("tr");
+
+    var $text = $row.find(".first_nam").text();
+    document.getElementById("first_name").value=$text;
+    var $text = $row.find(".last_nam").text();
+    document.getElementById("last_name").value=$text;
+    document.getElementById("bar").value= "delete";
+    document.forms["form"].submit();
+});
+        });
+</script>
+
+<!--buttonupdate-->
+<script>Buttonupdate = function(){
+  document.getElementById("bar").value= "update";
+  document.forms["form"].submit();
+}</script>
+
+<!--select-->
+<script>Buttonselect = function(){
+  document.getElementById("check1").style = "display:inline";
+}</script>
+
+<!--selectall-->
+<script>
+$(document).ready(function () {
+    $("#selectall").click(function(){
+        $("input[type=checkbox]").prop('checked', $("#table1 input[type=checkbox]").prop('checked'));
+    });
+});
+</script>
+
+
+<!--buttonfilter-->
+<script>Buttonfilter = function(){
+  document.getElementById("myModal").style.display = "block";
+}</script>
+<script>
+    $(document).ready(function () {
+$("#close").click(function() {
+    document.getElementById("myModal").style.display = "none";
+});
+        });
+</script>
+<script>
+    window.onclick = function(event) {
+    if (event.target == document.getElementById("myModal")) {
+        document.getElementById("myModal").style.display = "none";
+  }
+}
+</script>
+<script>
+var slider = document.getElementById("myrange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+</script>
+<script>
+    $(document).ready(function () {
+        $("#agefilter").click(function () {
+        document.getElementById("slidecontainer").style.display = "block";
+        document.getElementById("genderfilter1").style.display = "None";
+        document.getElementById("lastnamefilter1").style.display = "None";
+              });
+    });
+     $(document).ready(function () {
+        $("#genderfilter").click(function () {
+        document.getElementById("slidecontainer").style.display = "None";
+        document.getElementById("genderfilter1").style.display = "block";
+        document.getElementById("lastnamefilter1").style.display = "None";
+              });
+    });
+     $(document).ready(function () {
+        $("#lastnamefilter").click(function () {
+        document.getElementById("slidecontainer").style.display = "None";
+        document.getElementById("genderfilter1").style.display = "None";
+        document.getElementById("lastnamefilter1").style.display = "block";
+              });
+    });
+</script>
+
+<!--buttonfilterok-->
+<script>filtersubmitbtn = function(){
+  document.getElementById("bar").value= "filter";
+  var agerange = document.getElementById("myrange").value;
+  var gen = document.querySelector('input[name="gender"]:checked').value;
+  var lname = document.getElementById("lastnamefilterinput").value;
+  document.getElementById("last_name").value = lname;
+  document.getElementById("age").value = agerange;
+  document.getElementById("gender").value = gen;
+  document.forms["form"].submit();
+  document.getElementById("myModal").style.display = "none";
+}
+</script>
+
+
+<!--BUttonedit-->
+<script type="text/javascript">
+        $(document).ready(function () {
+$(".edit_btn").click(function() {
+    var $row = $(this).closest("tr");
+
+    var $text = $row.find(".first_nam").text();
+    document.getElementById("first_name").value=$text;
+    var $text = $row.find(".last_nam").text();
+    document.getElementById("last_name").value=$text;
+    var $text = $row.find(".gen").text();
+    document.getElementById("gender").value=$text;
+    var $text = $row.find(".ag").text();
+    document.getElementById("age").value=$text;
+    var $text = $row.find(".con").text();
+    document.getElementById("contact").value=$text;
+    var $text = $row.find(".add").text();
+    document.getElementById("address").value=$text;
+    var $text = $row.find(".roo").text();
+    document.getElementById("room_no").value=$text;
+    var $text = $row.find(".bed").text();
+    document.getElementById("bed_no").value=$text;
+
+});
+        });
+</script>
+
+<!--delete multiple-->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".trash_btn1").click(function () {
+            var message = [];
+            $("td input[type=checkbox]:checked").each(function () {
+                var $row = $(this).closest("tr");
+                var $text = $row.find(".first_nam").text();
+                message.push($text);
+            });
+
+            document.getElementById("first_name").value=message;
+            document.getElementById("bar").value= "deletemultiple";
+            document.forms["form"].submit();
+        });
+    });
+</script>
+
+<!--popup filter-->
+<script>
+
+</script>
+      {% endblock %}
+
+
+

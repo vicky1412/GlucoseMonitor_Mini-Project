@@ -1,0 +1,86 @@
+.formlogin-container{
+    background: white;
+    border-color: #729de0;
+    border-style: solid;
+    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: relative;
+    top: 80px;
+    right: -325px;
+    border-width: 2px;
+    border-radius: 5px;
+    padding: 30px;
+}
+
+.formsignup-container{
+    background: white;
+    border-color: #729de0;
+    border-style: solid;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: relative;
+    top: 20px;
+    right: -325px;
+    border-width: 2px;
+    border-radius: 5px;
+    padding: 30px;
+}
+
+.bgcover{
+  background-image: url("/static/images/bg1.jpg");
+  width:1200px;
+  top:50px;
+  height:500px;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  background-size: 100% 100%;
+}
+
+.titletext{
+    margin-top:0%;
+  text-align: center;
+  color:  #ffffff;
+  font-size: 30px;
+}
+
+.titletext1{
+  text-align: center;
+  color:  #cac7d6;
+  font-size: 20px;
+}
+
+.getstartbutton{
+  width: 200px;
+  margin: 50px 475px;
+  color: #ffffff;
+  font-size: 25px;
+  border:1px solid #EFEEF5;
+  font-weight: 500;
+  background: #e81228;
+  border-radius: 15px;
+  padding: 10px;
+  cursor:pointer;
+  transition: .3s;
+
+}
+.getstartbutton:hover{
+  border-radius: 0;
+  background: #f52e2e;
+}
+
+.glucoseimage{
+    margin: 5px 470px;
+    width: 200px;
+}
+
+.navbar-dark a{
+color:white;
+text-decoration: none;
+}
+
+.ale{
+width:500px;
+margin-left:20px;
+margin-top: -380px;
+
+}
+
