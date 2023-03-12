@@ -1,6 +1,6 @@
 # GlucoseMonitor
 
-Glucose level monitor : https://glmonitor.herokuapp.com/
+Glucose level monitor : https://glmonitor.onrender.com/
 
 It is a web application.
 
@@ -21,7 +21,7 @@ who is this for - 1. Hospital management
  
  module used : flask, sqlalchemy, sqlite3, threading, requests,etc.
  
- our deployed web app at https://glmonitor.herokuapp.com/
+ our deployed web app at https://glmonitor.onrender.com/
  play with it..!
  
  Thank you.
